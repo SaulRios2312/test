@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios de Criptomonedas</title>
+
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00eaff;
+        }
+
+        .tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .tabla th, .tabla td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        .tabla th {
+            background: #00eaff;
+            color: #000;
+        }
+
+        .tabla tr:nth-child(even) {
+            background: #1d1d1d;
+        }
+
+        .tabla tr:hover {
+            background: #333;
+        }
+
+        img {
+            width: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Precios de Criptomonedas (CoinGecko)</h1>
+
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Nombre</th>
+                <th>Precio USD</th>
+                <th>24h %</th>
+                <th>Market Cap</th>
+            </tr>
+        </thead>
+        <tbody id="contenido"></tbody>
+    </table>
+
+    <script>
+        async function cargarCriptos() {
+            const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+
+                const contenedor = document.getElementById("contenido");
+                contenedor.innerHTML = "";
+
+                data.slice(0, 20).forEach(cripto => {
+                    contenedor.innerHTML += `
+                        <tr>
+                            <td><img src="${cripto.image}" alt="${cripto.name}"></td>
+                            <td>${cripto.name}</td>
+                            <td>$${cripto.current_price.toLocaleString()}</td>
+                            <td style="color:${cripto.price_change_percentage_24h >= 0 ? '#00ff7b' : '#ff4d4d'};">
+                                ${cripto.price_change_percentage_24h.toFixed(2)}%
+                            </td>
+                            <td>$${cripto.market_cap.toLocaleString()}</td>
+                        </tr>
+                    `;
+                });
+
+            } catch (e) {
+                document.getElementById("contenido").innerHTML =
+                    "<tr><td colspan='5'>Error al cargar la API</td></tr>";
+            }
+        }
+
+        cargarCriptos();
+    </script>
+
+</body>
+</html>
