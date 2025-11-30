@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proyecto Completo — Índice</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- Scripts (defer para que carguen después del HTML) -->
+  <script defer src="js/bienvenida.js"></script>
+  <script defer src="js/edad.js"></script>
+  <script defer src="js/calculos.js"></script>
+  <script defer src="js/apis.js"></script>
+  <script defer src="js/formulario_matriculacion.js"></script>
+  <script defer src="js/formulario_prueba.js"></script>
+</head>
+<body>
+  <!-- Cabecera / Nav -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">📚 Proyecto - Portafolio</a>
+
+      <nav id="mainNav" class="nav">
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">HTML & Básicos ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/html_basico.html">HTML básico</a></li>
+              <li><a href="paginas/productos.html">Productos</a></li>
+              <li><a href="paginas/imagenes.html">Imágenes</a></li>
+              <li><a href="paginas/galeria.html">Galería</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">Banco ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/banco_tabla.html">Tabla</a></li>
+              <li><a href="paginas/banco_miembros.html">Miembros</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">Operaciones ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/operaciones.html">Operaciones</a></li>
+              <li><a href="paginas/calculos.html">(Herramientas)</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">APIs & Datos ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/clima.html">Clima (OpenWeather)</a></li>
+              <li><a href="paginas/paises.html">Países (REST Countries)</a></li>
+              <li><a href="paginas/pokemon.html">PokéAPI</a></li>
+              <li><a href="paginas/rick_morty.html">Rick & Morty</a></li>
+              <li><a href="paginas/criptomonedas.html">Criptomonedas (CoinGecko)</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">Multimedia ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/multimedia.html">Mapas</a></li>
+              <li><a href="paginas/multimedia2.html">YouTube</a></li>
+              <li><a href="paginas/multimedia3.html">MP4 & Audio</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">Red social ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/redsocial.html">Red social (multimedia)</a></li>
+              <li><a href="paginas/comentarios.html">Comentarios</a></li>
+              <li><a href="paginas/noticias.html">Noticias</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">Formularios ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/matriculacion.html">Matriculación</a></li>
+              <li><a href="paginas/prueba.html">Prueba / Demo</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-expanded="false">Menús ▾</button>
+            <ul class="dropdown">
+              <li><a href="paginas/menu1.html">Menu 1</a></li>
+              <li><a href="paginas/menu2.html">Menu 2</a></li>
+              <li><a href="paginas/menu3.html">Menu 3</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button id="hamburger" class="hamburger" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <!-- Bienvenida interactiva -->
+  <main class="container main-grid">
+    <section class="welcome-card">
+      <h1>Bienvenido al Proyecto Completo</h1>
+      <p class="lead">Este sitio contiene una colección de prácticas y páginas: APIs, formularios, multimedia, galerías, bancos de datos, menús y una mini red social. Usa el menú para navegar por cada demostración.</p>
+
+      <div class="welcome-form">
+        <h2>Di tu nombre y edad</h2>
+        <form id="formBienvenida" onsubmit="return false;">
+          <div class="row">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+          </div>
+          <div class="row">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" name="apellido" type="text" placeholder="Tu apellido" required>
+          </div>
+          <div class="row">
+            <label for="edad">Edad</label>
+            <input id="edad" name="edad" type="number" min="0" max="130" placeholder="Ej: 22" required>
+          </div>
+
+          <div class="row actions">
+            <button id="btnSaludar" class="btn primary" type="button">Saludar</button>
+            <button id="btnLimpiar" class="btn ghost" type="button">Limpiar</button>
+          </div>
+        </form>
+
+        <div id="saludoResultado" class="saludo hidden" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Resumen de secciones: descripción breve de cada grupo -->
+    <aside class="site-map">
+      <h3>Contenido del sitio (resumen)</h3>
+
+      <div class="map-block">
+        <h4>HTML básico</h4>
+        <p>Páginas de ejemplo con etiquetas HTML, tablas, listas e imágenes: <strong>html_basico, productos, imagenes, galeria</strong>.</p>
+      </div>
+
+      <div class="map-block">
+        <h4>Banco</h4>
+        <p>Demostraciones con tablas y miembros: <strong>banco_tabla, banco_miembros</strong>.</p>
+      </div>
+
+      <div class="map-block">
+        <h4>Operaciones & Cálculos</h4>
+        <p>Herramientas y ejemplos de operaciones matemáticas y manipulaciones DOM (scripts en <code>js/calculos.js</code>).</p>
+      </div>
+
+      <div class="map-block">
+        <h4>Formularios</h4>
+        <p>Formularios de matriculación y pruebas con validación y persistencia local: <strong>matriculacion, prueba</strong>.</p>
+      </div>
+
+      <div class="map-block">
+        <h4>APIs</h4>
+        <p>Ejemplos conectados a APIs públicas: OpenWeather, REST Countries, PokéAPI, Rick & Morty, CoinGecko.</p>
+      </div>
+
+      <div class="map-block">
+        <h4>Multimedia</h4>
+        <p>Mapas, videos embed de YouTube, reproductores mp4 y audio dentro de <code>/statics/</code>.</p>
+      </div>
+
+      <div class="map-block">
+        <h4>Red social</h4>
+        <p>Mini red social con publicaciones multimedia y sistema de likes (persistencia local).</p>
+      </div>
+
+      <div class="map-block">
+        <h4>Menús</h4>
+        <p>Variantes de menús & submenús para interactuar y practicar UI responsiva.</p>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- Pie -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 — Proyecto de Prácticas. Hecho con ❤️</p>
+      <nav>
+        <a href="paginas/galeria.html">Galería</a> ·
+        <a href="paginas/redsocial.html">Red social</a> ·
+        <a href="paginas/multimedia3.html">Multimedia</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Pequeño script inline para los controles de menú (complementa js/hamburger si existe) -->
+  <script>
+    (function(){
+      const hamburger = document.getElementById('hamburger');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', ()=> {
+        const shown = nav.classList.toggle('nav-open');
+        hamburger.setAttribute('aria-expanded', shown ? 'true' : 'false');
+      });
+
+      // Dropdown buttons: accesibilidad y toggle
+      document.querySelectorAll('.has-dropdown .dropbtn').forEach(btn=>{
+        btn.addEventListener('click', (e)=>{
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', !expanded);
+          btn.parentElement.classList.toggle('open', !expanded);
+        });
+      });
+    })();
+  </script>
+
+</body>
+  </html>
