@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes - Rick and Morty</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #7bff9e;
+        }
+        #buscador {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #2a2a2a;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+        }
+        .card h3 {
+            margin: 10px 0 5px;
+        }
+        .card p {
+            margin: 0 0 10px;
+            font-size: 14px;
+            color: #bfbfbf;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rick and Morty - Personajes</h1>
+
+    <input id="buscador" type="text" placeholder="Buscar personaje...">
+
+    <div class="contenedor" id="contenedor"></div>
+
+    <script>
+        const contenedor = document.getElementById("contenedor");
+        const buscador = document.getElementById("buscador");
+
+        async function cargarPersonajes(nombre = "") {
+            contenedor.innerHTML = "<p>Cargando...</p>";
+
+            let url = "https://rickandmortyapi.com/api/character";
+            if (nombre) url += `/?name=${nombre}`;
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+
+                if (!data.results) {
+                    contenedor.innerHTML = "<p>No se encontraron personajes.</p>";
+                    return;
+                }
+
+                contenedor.innerHTML = "";
+
+                data.results.forEach(p => {
+                    contenedor.innerHTML += `
+                        <div class="card">
+                            <img src="${p.image}" alt="${p.name}">
+                            <h3>${p.name}</h3>
+                            <p>${p.species} - ${p.status}</p>
+                        </div>
+                    `;
+                });
+
+            } catch (error) {
+                contenedor.innerHTML = "<p>Error al cargar la API.</p>";
+            }
+        }
+
+        buscador.addEventListener("input", e => {
+            cargarPersonajes(e.target.value.trim());
+        });
+
+        cargarPersonajes();
+    </script>
+
+</body>
+</html>
