@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script defer src="../js/calculos.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Tienda de Productos</h1>
+    <p>Explora nuestros productos y agrega al carrito.</p>
+  </header>
+
+  <section class="productos">
+    <div class="producto">
+      <img src="../statics/images/producto1.jpg" alt="Producto 1">
+      <h3>Producto 1</h3>
+      <p>Precio: $25</p>
+      <button onclick="agregarCarrito('Producto 1', 25)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="../statics/images/producto2.jpg" alt="Producto 2">
+      <h3>Producto 2</h3>
+      <p>Precio: $40</p>
+      <button onclick="agregarCarrito('Producto 2', 40)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="../statics/images/producto3.jpg" alt="Producto 3">
+      <h3>Producto 3</h3>
+      <p>Precio: $30</p>
+      <button onclick="agregarCarrito('Producto 3', 30)">Agregar al carrito</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Carrito de Compras</h2>
+    <div id="carrito"></div>
+    <p id="total"></p>
+  </section>
+
+</body>
+</html>
