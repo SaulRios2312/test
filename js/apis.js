@@ -15,10 +15,9 @@ async function solicitarAPI(url) {
 
 /* -----------------------------
    API: OpenWeather
-   (NECESITÁS una API Key REAL)
 -------------------------------- */
 async function obtenerClima(ciudad) {
-    const API_KEY = "TU_API_KEY_REAL_AQUI"; // <--- **DEBES CAMBIAR ESTO POR UNA KEY REAL**
+    const API_KEY = "MI_API_KEY_REAL_AQUI";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&lang=es&appid=${API_KEY}`;
     return await solicitarAPI(url);
 }
